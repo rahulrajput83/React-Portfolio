@@ -1,6 +1,6 @@
+require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose');
-const Keys = require('./.env');
 const ContactForm = require('./Data');
 const Projects = require('./Data')
 
@@ -15,13 +15,10 @@ const server = app.listen(process.env.PORT || DEFAULT_PORT, function () {
     console.log(`Server listening on port ${port}!`);
 });
 
-mongoose.connect(Keys.connectionString)
+mongoose.connect(process.env.connectionString)
     .then(() => {
         console.log('Mongoose Connected')
     })
-    .catch(() => {
-        console.log('Failed');
-    });
 
 
 /* Cors Header to allows data access to other domain. Frontend url */
