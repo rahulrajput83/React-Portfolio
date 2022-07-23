@@ -1,7 +1,7 @@
 require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose');
-const ContactForm = require('./Data');
+const ContactForm = require('./Contact');
 const Projects = require('./Data');
 const cors = require('cors')
 
@@ -23,10 +23,9 @@ mongoose.connect(process.env.connectionString)
     })
     .catch(() => {
         console.log('Failed');
-    })
+    });
 
-
-app.post('/post', (req, res) => {
+app.post('/', (req, res) => {
     const Contact1 = new ContactForm({
         name: req.body.name,
         email: req.body.email,
@@ -34,10 +33,9 @@ app.post('/post', (req, res) => {
         message: req.body.message
     });
     Contact1.save().then((data) => {
-        console.log(data);
+        console.log('Submitted');
     });
 });
-
 
 app.get('/', function(req, res) {
     Projects.find({})
