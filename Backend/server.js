@@ -9,8 +9,7 @@ const cors = require('cors')
 const app = express();
 
 const DEFAULT_PORT = 2800;
-app.use(cors());
-app.use(express.json());
+
 const server = app.listen(process.env.PORT || DEFAULT_PORT, function () {
     // Log a message to indicate that the server was started correctly
     const port = server.address().port;
@@ -23,7 +22,18 @@ mongoose.connect(process.env.connectionString)
     })
     .catch(() => {
         console.log('Failed');
-    });
+    })
+
+
+/* Cors Header to allows data access to other domain. Frontend url */
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+    res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
+    next();
+});
+
+app.use(cors());
+app.use(express.json());
 
 app.post('/', (req, res) => {
     const Contact1 = new ContactForm({
@@ -33,9 +43,10 @@ app.post('/', (req, res) => {
         message: req.body.message
     });
     Contact1.save().then((data) => {
-        console.log('Submitted');
+        console.log('Data Saved...', data);
     });
 });
+
 
 app.get('/', function(req, res) {
     Projects.find({})
