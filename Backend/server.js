@@ -8,7 +8,7 @@ const cors = require('cors')
 /* Initializes express app. */
 const app = express();
 
-const DEFAULT_PORT = 2800;
+const DEFAULT_PORT = 2850;
 
 const server = app.listen(process.env.PORT || DEFAULT_PORT, function () {
     // Log a message to indicate that the server was started correctly
@@ -26,13 +26,14 @@ mongoose.connect(process.env.connectionString)
 
 
 /* Cors Header to allows data access to other domain. Frontend url */
-app.use(function (req, res, next) {
+/* app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:3000");
     res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
     next();
-});
+}); */
 
 app.use(cors());
+
 app.use(express.json());
 
 app.post('/', (req, res) => {
