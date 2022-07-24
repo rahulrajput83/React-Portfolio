@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const ContactForm = require('./Contact');
 const Projects = require('./Data');
-const cors = require('cors')
+
 
 /* Initializes express app. */
 const app = express();
@@ -24,19 +24,22 @@ mongoose.connect(process.env.connectionString)
         console.log('Failed');
     })
 
-
+ 
 /* Cors Header to allows data access to other domain. Frontend url */
-/* app.use(function (req, res, next) {
+app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:3000");
-    res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, PATCH");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization")
+    req.header("Access-Control-Allow-Origin", "http://localhost:3000");
+    req.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, PATCH");
+    req.header("Access-Control-Allow-Headers", "Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization")
     next();
-}); */
+});
 
-app.use(cors());
 
 app.use(express.json());
 
-app.post('/', (req, res) => {
+app.post('/contact', (req, res) => {
     const Contact1 = new ContactForm({
         name: req.body.name,
         email: req.body.email,
@@ -44,7 +47,8 @@ app.post('/', (req, res) => {
         message: req.body.message
     });
     Contact1.save().then((data) => {
-        console.log('Data Saved...', data);
+        console.log('Data Saved...', data)
+        res.send('Submitted, Thanks for contacting us.');
     });
 });
 
