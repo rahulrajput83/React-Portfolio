@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const ContactForm = require('./Contact');
 const Projects = require('./Data');
-
+const cors = require('cors')
 
 /* Initializes express app. */
 const app = express();
@@ -22,17 +22,17 @@ mongoose.connect(process.env.connectionString)
     })
     .catch(() => {
         console.log('Failed');
-    });
+    })
 
 
-
-app.use(function (req, res, next) {
+/* Cors Header to allows data access to other domain. Frontend url */
+/* app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:3000");
     res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
-    req.header("Access-Control-Allow-Origin", "http://localhost:3000");
-    req.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
     next();
-});
+}); */
+
+app.use(cors());
 
 app.use(express.json());
 
@@ -49,7 +49,7 @@ app.post('/', (req, res) => {
 });
 
 
-app.get('/', function (req, res) {
+app.get('/', function(req, res) {
     Projects.find({})
         .then((data) => res.send(data))
         .catch((err) => res.send(err));
