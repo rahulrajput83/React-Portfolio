@@ -1,9 +1,10 @@
 require('dotenv').config()
+const cors = require('cors')
 const express = require('express');
 const mongoose = require('mongoose');
 const ContactForm = require('./Contact');
 const Projects = require('./Data');
-const cors = require('cors')
+
 
 /* Initializes express app. */
 const app = express();
@@ -22,7 +23,18 @@ mongoose.connect(process.env.connectionString)
     })
     .catch(() => {
         console.log('Failed');
-    })
+    });
+
+var whitelist = ['http://localhost:3000/']
+var corsOptions = {
+    origin: function (origin, callback) {
+        if (whitelist.indexOf(origin) !== -1) {
+            callback(null, true)
+        } else {
+            callback(new Error('Not allowed by CORS'))
+        }
+    }
+}
 
 
 /* Cors Header to allows data access to other domain. Frontend url */
@@ -32,7 +44,7 @@ mongoose.connect(process.env.connectionString)
     next();
 }); */
 
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.use(express.json());
 
@@ -49,7 +61,7 @@ app.post('/', (req, res) => {
 });
 
 
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
     Projects.find({})
         .then((data) => res.send(data))
         .catch((err) => res.send(err));
