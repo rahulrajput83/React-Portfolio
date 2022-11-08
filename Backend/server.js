@@ -3,10 +3,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const ContactForm = require('./Contact');
 const Projects = require('./Data');
+const cors = require('cors')
 
 
 /* Initializes express app. */
 const app = express();
+app.use(cors());
 
 const DEFAULT_PORT = 2850;
 
@@ -26,7 +28,7 @@ mongoose.connect(process.env.connectionString)
 
  
 /* Cors Header to allows data access to other domain. Frontend url */
-app.use(function (req, res, next) {
+/* app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "https://rahulrajput83-portfolio.vercel.app");
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, PATCH");
     res.header("Access-Control-Allow-Headers", "Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization")
@@ -34,7 +36,7 @@ app.use(function (req, res, next) {
     req.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, PATCH");
     req.header("Access-Control-Allow-Headers", "Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization")
     next();
-});
+}); */
 
 
 app.use(express.json());
