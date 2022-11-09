@@ -78,7 +78,7 @@ function Social() {
                 </div>
             </div >
             <div className='w-full md:w-1/2 flex flex-col md:items-start md:justify-start items-center justify-center mt-8 md:mt-0'>
-                <span className='uppercase text-2xl text-center md:text-left w-full md:mr-6 uppercase tracking-tight font-medium sm:text-3xl text-gray-900 md:text-3xl'>Contact me</span>
+                <span className='uppercase text-2xl text-center md:text-left w-full md:mr-6 tracking-tight font-medium sm:text-3xl text-gray-900 md:text-3xl'>Contact me</span>
                 <div className='mt-6 flex flex-col w-full justify-center items-center md:justify-start md:items-start'>
                     <form className='flex flex-col w-full justify-center items-center md:justify-start md:items-start' onSubmit={handleSubmit}>
                         <input className='md:w-3/4 w-10/12 py-2 font-lg px-4 bg-gray-100 outline-0 rounded' value={form.name} name='name' onChange={handleChange} required type='text' placeholder='Your Name' />

@@ -10,6 +10,8 @@ const cors = require('cors')
 const app = express();
 app.use(cors());
 
+app.use(express.json({ limit: '50mb' }));
+
 const DEFAULT_PORT = 2850;
 
 const server = app.listen(process.env.PORT || DEFAULT_PORT, function () {
@@ -17,6 +19,7 @@ const server = app.listen(process.env.PORT || DEFAULT_PORT, function () {
     const port = server.address().port;
     console.log(`Server listening on port ${port}!`);
 });
+
 
 mongoose.connect(process.env.connectionString)
     .then(() => {
@@ -39,8 +42,6 @@ mongoose.connect(process.env.connectionString)
 }); */
 
 
-app.use(express.json());
-
 app.post('/contact', (req, res) => {
     const Contact1 = new ContactForm({
         name: req.body.name,
@@ -60,3 +61,13 @@ app.get('/', function(req, res) {
         .then((data) => res.send(data))
         .catch((err) => res.send(err));
 });
+
+app.post('/project', (req, res) => {
+    Projects.findOne({_id: req.body.id})
+        .then((data) => {
+            res.json({message: 'Success', data: data});
+        })
+        .catch(() => {
+            res.json({message: 'Error, Please try again...'})
+        })
+})
