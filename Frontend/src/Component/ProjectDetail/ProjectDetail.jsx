@@ -9,35 +9,73 @@ import Input from './Input';
 
 function ProjectDetail() {
     const { id } = useParams();
+    const [loading, setLoading] = useState(true);
+    const [data, setData] = useState({})
     const [form, setForm] = useState({
         name: '',
         email: '',
         feedback: ''
     })
-    const [message, setMessage] = useState('Loading')
+    const [message, setMessage] = useState('')
 
     const submit = (e) => {
         e.preventDefault();
-        setMessage('')
+        setMessage('Submiting...');
+        if(form.name && form.email && form.feedback) {
+            fetch('https://rahulrajput83-backend.herokuapp.com/post-feedback', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(form)
+            })
+            .then(res => res.json())
+            .then((res) => setMessage(res.message))
+            .catch(() => setMessage('Error, Please try again...'))
+        }
+        else {
+            setMessage('Please fill all fields...')
+        }
     }
 
     useEffect(() => {
-        console.log(form)
-    }, [form])
-    return <div className='w-full p-2 mt-2 sm:mt-0 sm:p-8 md:px-12 lg:px-20 flex flex-col'>
+        if(id) {
+            setLoading(true);
+            fetch('https://rahulrajput83-backend.herokuapp.com/project', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({id: id})
+            })
+                .then(res => res.json())
+                .then((res) => {
+                    if(res.message === 'Success') {
+                        setData(res.data);
+                        setLoading(false);
+                    }
+                })
+                .catch(() => {
+                    console.log('err')
+                })
+        }
+    }, [id])
+    return !loading ? <div className='w-full p-2 mt-2 sm:mt-0 sm:p-8 md:px-12 lg:px-20 flex flex-col'>
         <div className='w-full flex flex-col-reverse sm:flex-row justify-between sm:items-center'>
-            <span className='text-lg mt-4 sm:mt-0 font-medium text-black'>Imaginar</span>
+            <span className='text-lg mt-4 sm:mt-0 font-medium text-black'>{data.title}</span>
             <div className='flex w-full gap-4 justify-end'>
-                <a href='/' className='flex items-center w-10 h-10 justify-center group transition-all ease-in-out duration-300 hover:bg-second rounded border-[0.12rem] border-second text-white font-medium'>
+                <a href={data.codelink} target='_blank' rel='noreferrer' className='flex items-center w-10 h-10 justify-center group transition-all ease-in-out duration-300 hover:bg-second rounded border-[0.12rem] border-second text-white font-medium'>
                     <FaGithub className='text-xl text-second group-hover:text-white ' />
                 </a>
-                <a href='/' className='flex items-center w-10 h-10 justify-center group transition-all ease-in-out duration-300 hover:bg-white bg-second rounded border-[0.12rem] border-second text-white font-medium'>
+                <a href={data.demolink} target='_blank' rel='noreferrer' className='flex items-center w-10 h-10 justify-center group transition-all ease-in-out duration-300 hover:bg-white bg-second rounded border-[0.12rem] border-second text-white font-medium'>
                     <FaEye className='text-xl text-white group-hover:text-second' />
                 </a>
             </div>
         </div>
         <div className='w-full'>
-            <span className='font-medium text-sm'>Social Media Web Application</span>
+            <span className='font-medium text-sm'>{data.description}</span>
         </div>
         <div className='w-full grid mt-8 grid-cols-1 gap-8 sm:grid-cols-2'>
             <div className='w-full flex flex-col'>
@@ -66,7 +104,7 @@ function ProjectDetail() {
             </div>
 
         </div>
-    </div>
+    </div> : <Loading />
 }
 
 export default ProjectDetail

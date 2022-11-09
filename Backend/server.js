@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const ContactForm = require('./Contact');
 const Projects = require('./Data');
+const Feedback = require('./Feedback');
 const cors = require('cors')
 
 
@@ -29,7 +30,7 @@ mongoose.connect(process.env.connectionString)
         console.log('Failed');
     })
 
- 
+
 /* Cors Header to allows data access to other domain. Frontend url */
 /* app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "https://rahulrajput83-portfolio.vercel.app");
@@ -56,18 +57,34 @@ app.post('/contact', (req, res) => {
 });
 
 
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
     Projects.find({})
         .then((data) => res.send(data))
         .catch((err) => res.send(err));
 });
 
 app.post('/project', (req, res) => {
-    Projects.findOne({_id: req.body.id})
+    Projects.findOne({ _id: req.body.id })
         .then((data) => {
-            res.json({message: 'Success', data: data});
+            res.json({ message: 'Success', data: data });
         })
         .catch(() => {
-            res.json({message: 'Error, Please try again...'})
+            res.json({ message: 'Error, Please try again...' })
         })
 })
+
+
+app.post('/post-feedback', (req, res) => {
+    const NewFeedback = new Feedback({
+        name: req.body.name,
+        email: req.body.email,
+        feedback: req.body.feedback,
+    });
+    NewFeedback.save()
+    .then(() => {
+        res.json({message: 'Submitted, Thank you for your feedback...'});
+    })
+    .catch(() => {
+        res.json({message: 'Error, Please try again...'})
+    })
+});
