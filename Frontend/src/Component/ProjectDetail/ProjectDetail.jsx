@@ -14,14 +14,15 @@ function ProjectDetail() {
     const [form, setForm] = useState({
         name: '',
         email: '',
-        feedback: ''
+        feedback: '',
+        id: id
     })
     const [message, setMessage] = useState('')
 
     const submit = (e) => {
         e.preventDefault();
         setMessage('Submiting...');
-        if(form.name && form.email && form.feedback) {
+        if (form.name && form.email && form.feedback) {
             fetch('https://rahulrajput83-backend.herokuapp.com/post-feedback', {
                 method: 'POST',
                 headers: {
@@ -30,9 +31,19 @@ function ProjectDetail() {
                 },
                 body: JSON.stringify(form)
             })
-            .then(res => res.json())
-            .then((res) => setMessage(res.message))
-            .catch(() => setMessage('Error, Please try again...'))
+                .then(res => res.json())
+                .then((res) => {
+                    setMessage(res.message)
+                    if (res.message === 'Submitted, Thank you for your feedback...') {
+                        setForm({
+                            name: '',
+                            email: '',
+                            feedback: '',
+                            id: id
+                        })
+                    }
+                })
+                .catch(() => setMessage('Error, Please try again...'))
         }
         else {
             setMessage('Please fill all fields...')
@@ -40,7 +51,7 @@ function ProjectDetail() {
     }
 
     useEffect(() => {
-        if(id) {
+        if (id) {
             setLoading(true);
             fetch('https://rahulrajput83-backend.herokuapp.com/project', {
                 method: 'POST',
@@ -48,11 +59,11 @@ function ProjectDetail() {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({id: id})
+                body: JSON.stringify({ id: id })
             })
                 .then(res => res.json())
                 .then((res) => {
-                    if(res.message === 'Success') {
+                    if (res.message === 'Success') {
                         setData(res.data);
                         setLoading(false);
                     }

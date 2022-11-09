@@ -5,6 +5,7 @@ const feedbackSchema = new mongoose.Schema({
     name: String,
     email: String,
     feedback: String,
+    project: String
 });
 
 /* Creates Mongoose Model */

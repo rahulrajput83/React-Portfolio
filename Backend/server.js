@@ -78,6 +78,7 @@ app.post('/post-feedback', (req, res) => {
         name: req.body.name,
         email: req.body.email,
         feedback: req.body.feedback,
+        project: req.body.id
     });
     NewFeedback.save()
         .then(() => {
