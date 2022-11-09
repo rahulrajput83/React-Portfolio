@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { FaGithub, FaEye } from "react-icons/fa";
 import Loading from './Loading';
+import LinesEllipsis from 'react-lines-ellipsis'
+import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
+import {Link} from 'react-router-dom'
+
+const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
 
 
 function AllProjects() {
@@ -28,18 +32,16 @@ function AllProjects() {
             {
                 loading ? <Loading /> : null
             }
-            <div className='w-full flex flex-row justify-evenly flex-wrap '>
+            <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-10 container mx-auto px-4 md:px-8 mt-4'>
 
                 {
                     allprojects.map((data, index) => {
                         return (
-                            <div key={index} className='rounded-md transition-all ease-in-out flex flex-col mt-12 p-4 w-80 shadow-md shadow-main'>
-                                <div className='p-2 w-full h-40'>
-                                    <img className='' alt='' src={data.cover} />
-                                </div>
-                                <div className='text-center text-lg font-medium mt-8 text-black'>{data.title}</div>
-                                <p className='text-justify mt-3 text-base font-medium'>{data.description}</p>
-                                <div className='mt-4 flex w-full justify-evenly'>
+                            <Link to={data._id} key={index} className='mx-auto group w-full bg-cover shadow-2xl pb-8 rounded-b-2xl transform duration-500 hover:-translate-y-4 cursor-pointer rounded-lg transition-all ease-in-out flex flex-col'>
+                                <img src={data.cover} alt='' className={`object-top group-hover:object-bottom hover:object-bottom p-1 h-72 transition-all duration-[2000ms] ease-in-out object-cover overflow-hidden w-full`} />
+                                <span className='text-center px-6 text-base font-medium mt-4 text-black'><ResponsiveEllipsis text={data.title} maxLine='1' ellipsis='...' trimRight basedOn='letters' /></span>
+                                <span className='text-justify px-6 mt-3 text-sm font-medium'><ResponsiveEllipsis text={data.description} maxLine='2' ellipsis='...' trimRight basedOn='letters' /></span>
+                                {/* <div className='mt-4 flex px-4 w-full justify-evenly'>
                                     <a href={data.codelink} className='px-6 flex items-center py-2 rounded-md bg-main hover:bg-second text-white font-medium'>
                                         <FaGithub className='mr-2' />
                                         <span>GitHub</span>
@@ -48,9 +50,8 @@ function AllProjects() {
                                         <FaEye className='mr-2' />
                                         <span>Demo</span>
                                     </a>
-                                </div>
-                            </div>
-
+                                </div> */}
+                            </Link>
                         )
                     })
                 }
