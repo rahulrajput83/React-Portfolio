@@ -37,7 +37,7 @@ function AllProjects() {
                 {
                     allprojects.map((data, index) => {
                         return (
-                            <Link to={data._id} key={index} className='mx-auto group w-full bg-cover shadow-2xl pb-8 rounded-b-2xl transform duration-500 hover:-translate-y-4 cursor-pointer rounded-lg transition-all ease-in-out flex flex-col'>
+                            <Link to={`/project/${data._id}`} key={index} className='mx-auto group w-full bg-cover shadow-2xl pb-8 rounded-b-2xl transform duration-500 hover:-translate-y-4 cursor-pointer rounded-lg transition-all ease-in-out flex flex-col'>
                                 <img src={data.cover} alt='' className={`object-top group-hover:object-bottom rounded-b-none rounded-lg hover:object-bottom h-72 transition-all duration-[2000ms] ease-in-out object-cover overflow-hidden w-full`} />
                                 <span className='text-center px-6 text-base font-medium mt-4 text-black'><ResponsiveEllipsis text={data.title} maxLine='1' ellipsis='...' trimRight basedOn='letters' /></span>
                                 <span className='text-justify px-6 mt-3 text-sm font-medium'><ResponsiveEllipsis text={data.description} maxLine='2' ellipsis='...' trimRight basedOn='letters' /></span>

@@ -10,9 +10,9 @@ export default function MetaData() {
         <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
           
           <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-            <div className="sm:text-center lg:text-left">
+            <div className="text-left sm:text-center lg:text-left">
               <h1 className="text-2xl tracking-tight font-medium flex flex-col text-gray-900 sm:text-4xl md:text-4xl">
-                <span className="flex flex-row">Hi There!   <span className="ml-2 animate-wave"> 👋🏻  </span></span>
+                <span className="flex flex-row justify-start sm:justify-center lg:justify-start">Hi There!   <span className="ml-2 animate-wave"> 👋🏻  </span></span>
                 <span className="block mt-4 xl:inline uppercase">i'm <span className="text-second font-bold">rahul rajput</span></span>
               </h1>
               <div className="font-bold text-lg sm:text-3xl md:text-3xl mt-8 sm:mt-16 text-main">
