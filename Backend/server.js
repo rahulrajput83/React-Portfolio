@@ -9,10 +9,9 @@ const cors = require('cors')
 
 /* Initializes express app. */
 const app = express();
-app.use(cors());
 
 app.use(express.json({ limit: '50mb' }));
-
+app.use(cors());
 const DEFAULT_PORT = 2850;
 
 const server = app.listen(process.env.PORT || DEFAULT_PORT, function () {
@@ -81,10 +80,10 @@ app.post('/post-feedback', (req, res) => {
         feedback: req.body.feedback,
     });
     NewFeedback.save()
-    .then(() => {
-        res.json({message: 'Submitted, Thank you for your feedback...'});
-    })
-    .catch(() => {
-        res.json({message: 'Error, Please try again...'})
-    })
+        .then(() => {
+            res.json({ message: 'Submitted, Thank you for your feedback...' });
+        })
+        .catch(() => {
+            res.json({ message: 'Error, Please try again...' })
+        })
 });
