@@ -15,7 +15,8 @@ function AllProjects() {
         fetch("https://rahulrajput83-backend.herokuapp.com/")
             .then((data) => data.json())
             .then((json) => {
-                setAllProjects(json)
+                const reverse = json.reverse();
+                setAllProjects(reverse)
                 setLoading(false)
             })
             .catch(() => {

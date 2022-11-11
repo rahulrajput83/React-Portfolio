@@ -75,7 +75,7 @@ function ProjectDetail() {
     }, [id])
     return !loading ? <div className='w-full p-2 mt-2 sm:mt-0 sm:p-8 md:px-12 lg:px-20 flex flex-col'>
         <div className='w-full flex flex-col-reverse sm:flex-row justify-between sm:items-center'>
-            <span className='text-lg mt-4 sm:mt-0 font-medium text-black'>{data.title}</span>
+            <span className='text-lg w-full mt-4 sm:mt-0 font-medium text-black'>{data.title}</span>
             <div className='flex w-full gap-4 justify-end'>
                 <a href={data.codelink} target='_blank' rel='noreferrer' className='flex items-center w-10 h-10 justify-center group transition-all ease-in-out duration-300 hover:bg-second rounded border-[0.12rem] border-second text-white font-medium'>
                     <FaGithub className='text-xl text-second group-hover:text-white ' />

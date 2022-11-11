@@ -30,7 +30,7 @@ function Projects(props) {
         <div className='flex flex-col w-full justify-center'>
             <div className='p-4 md:p-10'> </div>
             <h1 className='text-2xl text-center w-full md:text-center md:mr-6 uppercase tracking-tight font-medium flex flex-col text-gray-900 sm:text-4xl md:text-4xl0'>
-                <span>My Recent <span className='text-second'>Works</span></span>
+                <span>My Recent <span className='text-second'>Projects</span></span>
             </h1>
             <p className='text-lg font-medium text-center'>Here are a few projects I've worked on recently.</p>
             {

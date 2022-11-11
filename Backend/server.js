@@ -88,3 +88,18 @@ app.post('/post-feedback', (req, res) => {
             res.json({ message: 'Error, Please try again...' })
         })
 });
+
+app.post('/get-feedback', (req, res) => {
+    Feedback.find({ project: req.body.id })
+        .then((data) => {
+            if(data.length > 0) {
+                res.json({message: 'Success', data: data})
+            }
+            else {
+                res.json({message: 'No Feedback Yet.'})
+            }
+        })
+        .catch(() => {
+            res.json({message: 'Err'})
+        })
+});
