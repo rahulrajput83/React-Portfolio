@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { FaEye, FaGithub } from 'react-icons/fa';
@@ -10,6 +10,7 @@ import Input from './Input';
 function ProjectDetail() {
     const { id } = useParams();
     const [loading, setLoading] = useState(true);
+    const [feedback, setFeedback] = useState([])
     const [data, setData] = useState({})
     const [form, setForm] = useState({
         name: '',
@@ -18,6 +19,26 @@ function ProjectDetail() {
         id: id
     })
     const [message, setMessage] = useState('')
+
+    const getFeedback = useCallback(() => {
+        fetch('https://rahulrajput83-backend.herokuapp.com/get-feedback', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id: id })
+        })
+            .then(res => res.json())
+            .then((res) => {
+                if (res.message === 'Success') {
+                    setFeedback(res.data);
+                }
+            })
+            .catch(() => {
+                console.log('err')
+            })
+    }, [id])
 
     const submit = (e) => {
         e.preventDefault();
@@ -33,15 +54,20 @@ function ProjectDetail() {
             })
                 .then(res => res.json())
                 .then((res) => {
-                    setMessage(res.message)
+                    setMessage(res.message);
+                    setTimeout(() => {
+                        setMessage('')
+                    }, 3000)
                     if (res.message === 'Submitted, Thank you for your feedback...') {
                         setForm({
                             name: '',
                             email: '',
                             feedback: '',
                             id: id
-                        })
+                        });
+                        getFeedback();
                     }
+                    
                 })
                 .catch(() => setMessage('Error, Please try again...'))
         }
@@ -70,9 +96,13 @@ function ProjectDetail() {
                 })
                 .catch(() => {
                     console.log('err')
-                })
+                });
+
+            getFeedback();
         }
-    }, [id])
+    }, [id, getFeedback])
+
+
     return !loading ? <div className='w-full p-2 mt-2 sm:mt-0 sm:p-8 md:px-12 lg:px-20 flex flex-col'>
         <div className='w-full flex flex-col-reverse sm:flex-row justify-between sm:items-center'>
             <span className='text-lg w-full mt-4 sm:mt-0 font-medium text-black'>{data.title}</span>
@@ -90,15 +120,23 @@ function ProjectDetail() {
         </div>
         <div className='w-full grid mt-8 grid-cols-1 gap-8 sm:grid-cols-2'>
             <div className='w-full flex flex-col'>
-                <span className='font-medium text-lg text-black'>Recent Feedback</span>
+                <span className='font-medium text-lg text-black'>Recent Feedbacks</span>
                 <div className='w-full flex flex-col mt-4 gap-2'>
-                    <div className='w-full flex gap-0 flex-col'>
-                        <div className='w-full flex gap-4'>
-                            <img className='w-8 h-8' src={avtar} alt='' />
-                            <span className='my-auto text-base font-medium'>Rahul Rajput</span>
-                        </div>
-                        <span className='text-sm ml-12 font-medium'>Great work Rahul</span>
-                    </div>
+                    {feedback.length > 0 ?
+                        feedback.map((item, index) => {
+                            return (
+                                <div key={`feedBack-${index}`} className='w-full flex gap-0 flex-col'>
+                                    <div className='w-full flex gap-4'>
+                                        <img className='w-8 h-8' src={avtar} alt='' />
+                                        <span className='my-auto text-base font-medium'>{item.name}</span>
+                                    </div>
+                                    <span className='text-sm ml-12 font-medium'>{item.feedback}</span>
+                                </div>
+                            )
+                        })
+                        :
+                        <span className='text-sm font-medium'>No Feedback Yet...</span>
+                    }
                 </div>
             </div>
             <div className='w-full flex flex-col'>
