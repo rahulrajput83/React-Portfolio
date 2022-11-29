@@ -18,7 +18,7 @@ function Social() {
     const handleSubmit = (e) => {
         e.preventDefault();
         setAnimation('animate-spin');
-        fetch('https://rahulrajput83-backend.herokuapp.com/contact', {
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/contact`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

@@ -21,7 +21,7 @@ function ProjectDetail() {
     const [message, setMessage] = useState('')
 
     const getFeedback = useCallback(() => {
-        fetch('https://rahulrajput83-backend.herokuapp.com/get-feedback', {
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/get-feedback`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -44,7 +44,7 @@ function ProjectDetail() {
         e.preventDefault();
         setMessage('Submiting...');
         if (form.name && form.email && form.feedback) {
-            fetch('https://rahulrajput83-backend.herokuapp.com/post-feedback', {
+            fetch(`${process.env.REACT_APP_BACKEND_URL}/post-feedback`, {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -79,7 +79,7 @@ function ProjectDetail() {
     useEffect(() => {
         if (id) {
             setLoading(true);
-            fetch('https://rahulrajput83-backend.herokuapp.com/project', {
+            fetch(`${process.env.REACT_APP_BACKEND_URL}/project`, {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',

@@ -12,7 +12,7 @@ function AllProjects() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("https://rahulrajput83-backend.herokuapp.com/")
+        fetch(`${process.env.REACT_APP_BACKEND_URL}`)
             .then((data) => data.json())
             .then((json) => {
                 const reverse = json.reverse();
