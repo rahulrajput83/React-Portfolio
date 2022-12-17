@@ -8,6 +8,7 @@ import Social from './Component/Social/Social';
 import ProjectDetail from './Component/ProjectDetail/ProjectDetail';
 
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -17,6 +18,7 @@ function App() {
         <Route path='/projects' element={<AllProjects />} />
         <Route path='/contact' element={<Social />} />
         <Route path='/project/:id' element={<ProjectDetail />} />
+        
       </Routes>
       <Footer />
     </BrowserRouter>

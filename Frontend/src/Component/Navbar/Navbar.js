@@ -7,10 +7,10 @@ import { FaLinkedinIn, FaInstagram, FaGithub } from "react-icons/fa";
 
 
 const navigation = [
-    { name: 'Home', to: '/', current: true },
-    { name: 'Projects', to: '/projects', current: false },
-/*     { name: 'About', to: '/about', current: false }, */
-    { name: 'Contact', to: '/contact', current: false },
+    { name: 'Home', to: '/'},
+    { name: 'Projects', to: '/projects'},
+/*     { name: 'About', to: '/about',}, */
+    { name: 'Contact', to: '/contact'}
 ]
 
 function classNames(...classes) {
@@ -18,6 +18,18 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
+
+    const handleDownload = () => {
+        fetch('./Resume.pdf')
+        .then(res => res.blob())
+        .then((res) => {
+            const URL = window.URL.createObjectURL(res);
+            let alink = document.createElement('a');
+            alink.href = URL;
+            alink.download = 'Resume.pdf';
+            alink.click();
+        })
+    }
     return (
         <Disclosure as="nav" className="bg-white shadow-lg">
             {({ open }) => (
@@ -37,20 +49,20 @@ export default function Navbar() {
                             </div>
                             <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                                 <div className="hidden sm:block sm:ml-6">
-                                    <div className="flex space-x-4">
+                                    <div className="flex space-x-4 justify-center items-center">
                                         {navigation.map((item) => (
                                             <Link
-                                                key={item.name}
+                                                key={`large-${item.name}`}
                                                 to={item.to}
                                                 className={classNames(
-                                                    item.current ? 'bg-white text-second' : 'text-second',
-                                                    'px-3 py-2 text-base font-medium'
+                                                    'text-second px-3 py-2 text-base font-medium'
                                                 )}
                                                 aria-current={item.current ? 'page' : undefined}
                                             >
                                                 {item.name}
                                             </Link>
                                         ))}
+                                        <button className='text-white box-border bg-second rounded-full hover:bg-white hover:text-second px-3 py-2 text-base font-medium' onClick={handleDownload}>Download Resume</button>
                                     </div>
                                 </div>
                             </div>
@@ -81,20 +93,20 @@ export default function Navbar() {
                     </div>
 
                     <Disclosure.Panel className="sm:hidden">
-                        <div className="px-2 pt-2 pb-3 space-y-1">
+                        <div className="px-3 pt-2 pb-3 space-y-1">
                             {navigation.map((item) => (
                                 <Link
                                     key={item.name}
                                     to={item.to}
                                     className={classNames(
-                                        item.current ? 'bg-white text-second' : 'text-second',
-                                        'block px-3 py-2 rounded-md text-base font-medium'
+                                        'text-second block px-3 py-2 rounded-md text-base font-medium w-fit'
                                     )}
                                     aria-current={item.current ? 'page' : undefined}
                                 >
                                     {item.name}
                                 </Link>
                             ))}
+                            <button className='text-white box-border bg-second rounded-full hover:bg-white hover:text-second px-3 py-2 text-base font-medium' onClick={handleDownload}>Download Resume</button>
                         </div>
                     </Disclosure.Panel>
                 </>

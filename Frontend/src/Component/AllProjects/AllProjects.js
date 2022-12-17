@@ -26,8 +26,8 @@ function AllProjects() {
 
     return (
         <>
-            <div className='p-4 md:p-10'> </div>
-            <h1 className='text-2xl text-center w-full md:text-center md:mr-6 uppercase tracking-tight font-medium flex flex-col text-gray-900 sm:text-4xl md:text-4xl0'>
+            <div className='p-4 md:p-10 mb-8'> </div>
+            <h1 className='text-2xl text-center w-full md:text-center md:mr-6 uppercase tracking-tight font-medium flex flex-col text-gray-900 sm:text-4xl md:text-4xl'>
                 <span>All <span className='text-second'>Projects</span></span>
             </h1>
             {
