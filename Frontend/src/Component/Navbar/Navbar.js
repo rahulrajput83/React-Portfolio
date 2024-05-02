@@ -9,7 +9,7 @@ import { FaLinkedinIn, FaInstagram, FaGithub } from "react-icons/fa";
 const navigation = [
     { name: 'Home', to: '/'},
     { name: 'Projects', to: '/projects'},
-/*     { name: 'About', to: '/about',}, */
+    { name: 'Experience', to: '/experience',},
     { name: 'Contact', to: '/contact'}
 ]
 

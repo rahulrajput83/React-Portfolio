@@ -6,6 +6,7 @@ import Navbar from './Component/Navbar/Navbar';
 import AllProjects from './Component/AllProjects/AllProjects'
 import Social from './Component/Social/Social';
 import ProjectDetail from './Component/ProjectDetail/ProjectDetail';
+import WorkExperience from './Page/work-experience';
 
 
 
@@ -17,8 +18,8 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/projects' element={<AllProjects />} />
         <Route path='/contact' element={<Social />} />
+        <Route path='/experience' element={<WorkExperience />} />
         <Route path='/project/:id' element={<ProjectDetail />} />
-        
       </Routes>
       <Footer />
     </BrowserRouter>
