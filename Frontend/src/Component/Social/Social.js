@@ -59,7 +59,9 @@ function Social() {
         setForm({ ...form, [e.target.name]: e.target.value })
     }
     return (
-        <div className='flex flex-col md:flex-row w-full mt-10 justify-center items-center md:items-start md:mt-12 p-4 md:p-10'>
+        <>
+        <div className='p-4'> </div>
+        <div className='flex flex-col md:flex-row w-full  justify-center items-center md:items-start'>
             <div className='w-1/2'>
                 <h1 className='text-2xl text-center w-full md:text-center md:mr-6 uppercase tracking-tight font-medium flex flex-col text-gray-900 sm:text-3xl md:text-3xl'>
                     <span>find me on</span>
@@ -78,14 +80,14 @@ function Social() {
                 </div>
             </div >
             <div className='w-full md:w-1/2 flex flex-col md:items-start md:justify-start items-center justify-center mt-8 md:mt-0'>
-                <span className='uppercase text-2xl text-center md:text-left w-full md:mr-6 tracking-tight font-medium sm:text-3xl text-gray-900 md:text-3xl'>Contact me</span>
+                <span className='uppercase text-2xl mx-auto text-center md:text-left w-full md:mr-6 tracking-tight font-medium sm:text-3xl text-gray-900 md:text-3xl'>Contact me</span>
                 <div className='mt-6 flex flex-col w-full justify-center items-center md:justify-start md:items-start'>
                     <form className='flex flex-col w-full justify-center items-center md:justify-start md:items-start' onSubmit={handleSubmit}>
                         <input className='md:w-3/4 w-full py-2 font-lg px-4 bg-gray-100 outline-0 rounded' value={form.name} name='name' onChange={handleChange} required type='text' placeholder='Your Name' />
                         <input className='md:w-3/4 w-full py-2 mt-4 font-lg px-4 bg-gray-100 outline-0 rounded' value={form.email} name='email' onChange={handleChange} required type='email' placeholder='Your Email Address' />
                         <input className='md:w-3/4 w-full py-2 mt-4 font-lg px-4 bg-gray-100 outline-0 rounded' value={form.subject} name='subject' onChange={handleChange} required type='text' placeholder='Subject' />
                         <textarea className='md:w-3/4 w-full py-2 mt-4 font-lg px-4 bg-gray-100 outline-0 rounded overscroll-none' value={form.message} name='message' onChange={handleChange} required cols="90" rows="5" placeholder="Leave a comment..." ></textarea>
-                        <button type="submit" className="mt-8 flex bg-second py-2 px-4 text-white rounded">
+                        <button type="submit" className="my-8 flex bg-second py-2 px-4 text-white rounded">
                             {
                                 (animation === 'animate-spin') ? <><RiLoader2Fill className={`${animation} h-5 w-5 mr-3`} /> Sending </> : 'Send Now'
                             }
@@ -99,6 +101,8 @@ function Social() {
                 </div>
             </div>
         </div>
+        </>
+        
     )
 }
 

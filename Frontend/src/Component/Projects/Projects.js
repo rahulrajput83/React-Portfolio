@@ -27,7 +27,7 @@ function Projects(props) {
     });
 
     return (
-        <div className='flex flex-col w-full justify-center'>
+        <div className='flex flex-col w-full mb-10 justify-center'>
             <div className='p-4 md:p-10'> </div>
             <h1 className='text-2xl text-center w-full md:text-center md:mr-6 uppercase tracking-tight font-medium flex flex-col text-gray-900 sm:text-4xl md:text-4xl0'>
                 <span>My Recent <span className='text-second'>Projects</span></span>

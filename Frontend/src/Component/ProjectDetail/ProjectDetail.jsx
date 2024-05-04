@@ -107,11 +107,13 @@ function ProjectDetail() {
         <div className='w-full flex flex-col-reverse sm:flex-row justify-between sm:items-center'>
             <span className='text-lg w-full mt-4 sm:mt-0 font-medium text-black'>{data.title}</span>
             <div className='flex w-full gap-4 justify-end'>
-                <a href={data.codelink} target='_blank' rel='noreferrer' className='flex items-center w-10 h-10 justify-center group transition-all ease-in-out duration-300 hover:bg-second rounded border-[0.12rem] border-second text-white font-medium'>
-                    <FaGithub className='text-xl text-second group-hover:text-white ' />
+                <a href={data.codelink} target='_blank' rel='noreferrer' className='text-main p-2 gap-1 hover:text-white flex items-center justify-center group transition-all ease-in-out duration-300 hover:bg-second rounded border-[0.12rem] border-second font-medium'>
+                    <FaGithub className='text-xl text-second group-hover:text-white' />
+                    <span className='font-medium text-sm'>GitHub</span>
                 </a>
-                <a href={data.demolink} target='_blank' rel='noreferrer' className='flex items-center w-10 h-10 justify-center group transition-all ease-in-out duration-300 hover:bg-white bg-second rounded border-[0.12rem] border-second text-white font-medium'>
+                <a href={data.demolink} target='_blank' rel='noreferrer' className='text-white p-2 gap-1 hover:text-main flex items-center justify-center group transition-all ease-in-out duration-300 hover:bg-white bg-second rounded border-[0.12rem] border-second font-medium'>
                     <FaEye className='text-xl text-white group-hover:text-second' />
+                    <span className='font-medium text-sm'>Live</span>
                 </a>
             </div>
         </div>
