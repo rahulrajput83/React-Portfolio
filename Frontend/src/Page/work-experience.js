@@ -23,7 +23,12 @@ const customContent = [
             <li className="text-xs">Developed a mechanism to apply additional penalties for late loan payments, improving revenue
                 recovery and promoting timely repayments.
             </li>
-            <li className="text-xs"><b>Tech Stack –</b> Angular, Typescript, NodeJS, Express, Python, FastAPI, MySQL, Bootstrap, Git</li>
+            <li className="text-xs">Developed a native mobile application from scratch using React Native, successfully deployed on Google Play Store.</li>
+            <li className="text-xs">Implemented features enabling customers to manage their finances, including EMI payments, loan detail viewing, and profile updates.</li>
+            <li className="text-xs">Ensured smooth integration with backend services for real-time data retrieval and updates.</li>
+            <li className="text-xs">Focused on creating a user-friendly interface and seamless user experience throughout the app.</li>
+            <li className="text-xs">Contributed to ongoing maintenance, updates, and user feedback to enhance app performance and functionality.</li>
+            <li className="text-xs"><b>Tech Stack –</b> Angular, Typescript, NodeJS, Express, Python, FastAPI, MySQL, React Native, Bootstrap, Git</li>
         </ol>
     </div>
 ];
