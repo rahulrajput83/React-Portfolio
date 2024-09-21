@@ -20,13 +20,13 @@ function classNames(...classes) {
 export default function Navbar() {
 
     const handleDownload = () => {
-        fetch('./Resume.pdf')
+        fetch('./Rahul_Rajput_Resume.pdf')
         .then(res => res.blob())
         .then((res) => {
             const URL = window.URL.createObjectURL(res);
             let alink = document.createElement('a');
             alink.href = URL;
-            alink.download = 'Resume.pdf';
+            alink.download = 'Rahul_Rajput_Resume.pdf';
             alink.click();
         })
     }
