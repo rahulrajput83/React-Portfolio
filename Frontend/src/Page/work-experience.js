@@ -5,30 +5,22 @@ const customContent = [
     <div className="flex flex-col cursor-pointer w-full">
         <p className="text-sm font-bold mb-2">Techfino Capital Private Limited (TCPL)</p>
         <ol class="list-disc list-inside">
-            <li className="text-xs">Worked as a Full Stack Engineer on two key projects, B2B2C and B2C in a fintech environment,
-                contributing to both backend and frontend development.</li>
-            <li className="text-xs">Played an integral role in the design, development, and maintenance of three portals for each project:
-                Admin, Partner, and Customer, improving user experience and adding new features.</li>
-            <li className="text-xs">Integrated third-party APIs to expand functionality, enabling enhanced data exchange and new
-                service capabilities across the portals.</li>
-            <li className="text-xs">Collaborated closely with cross-functional teams to understand requirements, propose solutions, and
-                ensure timely delivery of project milestones.</li>
-            <li className="text-xs">Successfully integrated a completely new product into an existing project for the Ninja Cart company,
-                accomplishing this independently without disrupting the existing system flow.</li>
-            <li className="text-xs">Achieved a daily loan disbursement of over 50L solely through this new integration, showcasing its
-                significant scalability and positive impact on business operations.
-            </li>
-            <li className="text-xs">Implemented functionality to charge interest on customers for approved loans, ensuring compliance
-                with organizational policies and regulatory requirements.</li>
-            <li className="text-xs">Developed a mechanism to apply additional penalties for late loan payments, improving revenue
-                recovery and promoting timely repayments.
-            </li>
-            <li className="text-xs">Developed a native mobile application from scratch using React Native, successfully deployed on Google Play Store.</li>
-            <li className="text-xs">Implemented features enabling customers to manage their finances, including EMI payments, loan detail viewing, and profile updates.</li>
-            <li className="text-xs">Ensured smooth integration with backend services for real-time data retrieval and updates.</li>
-            <li className="text-xs">Focused on creating a user-friendly interface and seamless user experience throughout the app.</li>
-            <li className="text-xs">Contributed to ongoing maintenance, updates, and user feedback to enhance app performance and functionality.</li>
-            <li className="text-xs"><b>Tech Stack –</b> Angular, Typescript, NodeJS, Express, Python, FastAPI, MySQL, React Native, Bootstrap, Git</li>
+            <li className="text-xs">Spearheaded the development of three major fintech projects (B2B2C, B2C & SAAS), delivering full stack solutions across three distinct portals (Admin, Partner, Customer).</li>
+            <li className="text-xs">Integrated third-party APIs to enhanced platform functionality and real-time data exchange.</li>
+            <li className="text-xs">Led the integration of a new product for Ninja Cart, contributing to Rs 50L+ daily loan disbursement and demonstrating system scalability.</li>
+            <li className="text-xs">Developed mechanisms for interest calculations and penalties for late payments, increasing revenue recovery while ensuring policy compliance.</li>
+            <li className="text-xs">Built a React Native mobile application from scratch, deployed on Google Play Store, improving user experience with EMI payments and loan management.</li>
+            <li className="text-xs">Collaborated with cross-functional teams to ensure timely project delivery and alignment with business goals.</li>
+            <li className="text-xs">Documented system architecture and APIs, streamlining team onboarding and boosting efficiency.</li>
+            <li className="text-xs">Collaborated with JusPay to integrate a seamless loan solution, enabling partner university students to take loans for fees and pay via EMIs.</li>
+            <li className="text-xs">Automated loan balance adjustments upon EMI payments, enhancing accuracy and reducing manual interventions.</li>
+            <li className="text-xs">Incorporated an Account Aggregator, retrieving customers’ one-year financial history to streamline the loan processing.</li>
+            <li className="text-xs">Implemented an auto-loan approval system based on financial transactions, improving decision making accuracy.</li>
+            <li className="text-xs">Developed a cron job to automatically update loan balances, ensuring real-time precision in loan adjustments.</li>
+            <li className="text-xs">Engineered automatic PAN and Aadhar verification, streamlining the process by removing manual intervention and ensuring real-time customer verification.</li>
+            <li className="text-xs">Introduced two-factor authentication (2FA) to enhance security, providing an additional layer of protection for user accounts.</li>
+            <li className="text-xs">Resolved bugs across all portals, ensuring smoother functionality and improving overall system stability.</li>
+            <li className="text-xs">Developed role-based access control (RBAC), restricting endpoint access based on user roles, significantly enhancing the platform’s security.</li>
         </ol>
     </div>
 ];

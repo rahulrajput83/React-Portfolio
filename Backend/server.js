@@ -57,7 +57,7 @@ app.post('/contact', (req, res) => {
 
 
 app.get('/', function (req, res) {
-    Projects.find({})
+    Projects.find({show: true})
         .then((data) => res.send(data))
         .catch((err) => res.send(err));
 });

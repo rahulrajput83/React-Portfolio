@@ -6,7 +6,8 @@ const getPost = new mongoose.Schema({
     cover: String,
     description: String,
     codelink: String,
-    demolink: String
+    demolink: String,
+    show: Boolean
 });
 
 /* Creates Mongoose Model */
