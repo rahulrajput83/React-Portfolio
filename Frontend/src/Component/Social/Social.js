@@ -61,7 +61,7 @@ function Social() {
     return (
         <>
         <div className='p-4'> </div>
-        <div className='flex flex-col md:flex-row w-full  justify-center items-center md:items-start'>
+        <div className='flex flex-col mt-20 md:flex-row w-full  justify-center items-center md:items-start'>
             <div className='w-1/2'>
                 <h1 className='text-2xl text-center w-full md:text-center md:mr-6 uppercase tracking-tight font-medium flex flex-col text-gray-900 sm:text-3xl md:text-3xl'>
                     <span>find me on</span>

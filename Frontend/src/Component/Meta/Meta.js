@@ -1,12 +1,13 @@
 import React from "react";
 import homeLogo from "../Assets/home-main.svg";
 import Type from "./Effect";
+import { Link } from "react-router-dom";
 
 
 export default function MetaData() {
   return (
-    <div className="mt-2 relative bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <div className="relative bg-white overflow-hidden">
+      <div className="max-w-7xl mt-28 md:mt-40 mx-auto">
         <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
           
           <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
@@ -28,12 +29,12 @@ export default function MetaData() {
                   </a>
                 </div> */}
                 <div className="mt-3 sm:mt-0 sm:ml-3">
-                  <a
-                    href="/projects"
+                  <Link
+                    to="/projects"
                     className="w-full flex items-center bg-second text-white justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md md:py-4 md:text-lg md:px-10"
                   >
                     My Projects
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

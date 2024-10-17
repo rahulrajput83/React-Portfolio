@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Loading from './Loading';
 import LinesEllipsis from 'react-lines-ellipsis'
 import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
 import {Link} from 'react-router-dom'
+import Loading from '../AllProjects/Loading';
 
 const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis)
 
