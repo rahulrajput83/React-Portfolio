@@ -4,7 +4,7 @@ import { Chrono } from "react-chrono";
 const customContent = [
     <div className="flex flex-col cursor-pointer w-full">
         <p className="text-sm font-bold mb-2">Techfino Capital Private Limited (TCPL)</p>
-        <ol class="list-disc list-inside">
+        <ol className="list-disc list-inside">
             <li className="text-xs font-medium">Spearheaded the development of three major fintech projects (B2B2C, B2C & SAAS), delivering full stack solutions across three distinct portals (Admin, Partner, Customer).</li>
             <li className="text-xs font-medium">Integrated third-party APIs to enhanced platform functionality and real-time data exchange.</li>
             <li className="text-xs font-medium">Led the integration of a new product for Ninja Cart, contributing to Rs 50L+ daily loan disbursement and demonstrating system scalability.</li>
