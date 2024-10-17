@@ -104,8 +104,8 @@ function ProjectDetail() {
     }, [id, getFeedback])
 
 
-    return !loading ? <div className='w-full mt-20 p-2 sm:p-8 md:px-12 lg:px-20 flex flex-col'>
-        <div className='w-full flex flex-col-reverse sm:flex-row justify-between sm:items-center'>
+    return !loading ? <div className='w-full p-2 sm:p-8 md:px-12 lg:px-20 flex flex-col'>
+        <div className='w-full flex mt-24 flex-col-reverse sm:flex-row justify-between sm:items-center'>
             <span className='text-lg w-full mt-4 sm:mt-0 font-medium text-black'>{data.title}</span>
             <div className='flex w-full gap-4 justify-end'>
                 <a href={data.codelink} target='_blank' rel='noreferrer' className='text-main p-2 gap-1 hover:text-white flex items-center justify-center group transition-all ease-in-out duration-300 hover:bg-second rounded border-[0.12rem] border-second font-medium'>
@@ -156,7 +156,7 @@ function ProjectDetail() {
             </div>
 
         </div>
-    </div> : <Loading />
+    </div> : <div className='w-full p-2 sm:p-8 md:px-12 lg:px-20 flex flex-col'><div className='mt-24'><Loading /></div></div>
 }
 
 export default ProjectDetail
