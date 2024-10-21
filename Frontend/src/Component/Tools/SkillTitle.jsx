@@ -17,7 +17,7 @@ export default function Popover({id, title, src}) {
       {isPopoverVisible && (
         <div
           role="tooltip"
-          className="absolute z-10 w-36 text-sm border border-gray-200 rounded-lg bg-second shadow-2xl"
+          className="absolute z-10 w-24 text-sm border border-gray-200 rounded-lg bg-second shadow-2xl"
           style={{
             bottom: '90%',
             left: '50%',
