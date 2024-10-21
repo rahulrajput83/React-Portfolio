@@ -28,7 +28,7 @@ export default function Popover({id, title, src}) {
           <div className="px-3 text-sm pt-2 pb-3 text-white font-medium">
             <span>{title}</span>
           </div>
-          <div className="absolute bottom-[-6px] left-1/2 mt-2 transform -translate-x-1/2 w-4 h-4 bg-second border-b border-r border-second rotate-45"></div>
+          <div className="absolute bottom-[-6px] left-1/2 mt-2 transform -translate-x-1/2 w-4 h-4 bg-second rotate-45"></div>
         </div>
       )}
     </div>
