@@ -1,5 +1,6 @@
 import React from "react";
 import { Chrono } from "react-chrono";
+import { Transition } from "../Component/common-components/transitions";
 
 const customContent = [
     <div className="flex flex-col cursor-pointer w-full">
@@ -37,32 +38,36 @@ const items = [
 export default function WorkExperience() {
     return (
         <div className="py-8">
-            <h1 className='text-2xl mt-20 mb-4 text-center w-full md:text-center md:mr-6 uppercase tracking-tight font-medium flex flex-col text-gray-900 sm:text-4xl md:text-4xl'>
-                <span>Experience</span>
-            </h1>
-            <Chrono theme={{
-                primary: "#A338CD",
-                secondary: 'white',
-                titleColor: "#A338CD",
-                titleColorActive: "#A338CD",
-                cardBgColor: "white",
-                cardDetailsBackGround: 'white',
-                nestedCardBgColor: 'white',
-                nestedCardDetailsBackGround: 'white',
-                toolbarBgColor: 'white',
-                toolbarBtnBgColor: 'white',
-                toolbarTextColor: 'white'
-            }}
-                cardHeight={500}
-                borderLessCards
-                mode="VERTICAL_ALTERNATING"
-                scrollable
-                hideControls
-                disableToolbar
-                useReadMore={false}
-                items={items}>
-                {customContent}
-            </Chrono>
+            <Transition>
+                <h1 className='text-2xl mt-20 mb-4 text-center w-full md:text-center md:mr-6 uppercase tracking-tight font-medium flex flex-col text-gray-900 sm:text-4xl md:text-4xl'>
+                    <span>Experience</span>
+                </h1>
+            </Transition>
+            <Transition>
+                <Chrono theme={{
+                    primary: "#A338CD",
+                    secondary: 'white',
+                    titleColor: "#A338CD",
+                    titleColorActive: "#A338CD",
+                    cardBgColor: "white",
+                    cardDetailsBackGround: 'white',
+                    nestedCardBgColor: 'white',
+                    nestedCardDetailsBackGround: 'white',
+                    toolbarBgColor: 'white',
+                    toolbarBtnBgColor: 'white',
+                    toolbarTextColor: 'white'
+                }}
+                    cardHeight={500}
+                    borderLessCards
+                    mode="VERTICAL_ALTERNATING"
+                    scrollable
+                    hideControls
+                    disableToolbar
+                    useReadMore={false}
+                    items={items}>
+                    {customContent}
+                </Chrono>
+            </Transition>
         </div>
     )
 }
