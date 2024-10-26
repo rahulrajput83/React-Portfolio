@@ -15,7 +15,11 @@ function Projects(props) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_BACKEND_URL}`)
+        fetch(`${process.env.REACT_APP_BACKEND_URL}`, {
+            headers: {
+                'Cache-Control': 'max-age=6400'
+            }
+        })
             .then((data) => data.json())
             .then((json) => {
                 setProjects(json)
@@ -44,10 +48,9 @@ function Projects(props) {
                 {
                     newArray.map((data, index) => {
                         return (
-                            <Transition>
+                            <Transition key={`projectNew-${index}`}>
                                 <Link
                                     to={`/project/${data._id}`}
-                                    key={index}
                                     className="mx-auto relative group w-full bg-cover shadow-2xl pb-8 rounded-b-2xl transform duration-700 hover:-translate-y-4 cursor-pointer rounded-lg transition-all ease-in-out flex flex-col"
                                 >
                                     <div className="absolute top-0 right-0 gap-3 pr-2 pt-2 flex flex-col -translate-x-full opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-transform duration-700 ease-in-out z-0 group-hover:z-10">
