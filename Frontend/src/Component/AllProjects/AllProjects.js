@@ -15,7 +15,11 @@ function AllProjects() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_BACKEND_URL}`)
+        fetch(`${process.env.REACT_APP_BACKEND_URL}`, {
+            headers: {
+                'Cache-Control': 'max-age=6400'
+            }
+        })
             .then((data) => data.json())
             .then((json) => {
                 const reverse = json.reverse();
