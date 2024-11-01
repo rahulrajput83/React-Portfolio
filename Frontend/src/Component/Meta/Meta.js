@@ -47,10 +47,10 @@ export default function MetaData() {
     // </section>
 
     <div className="flex flex-col">
-      <section className="overflow-hidden pt-10 sm:pt-16 md:pt-0 2xl:pt-16 mt-24">
+      <section className="overflow-hidden pt-10 sm:pt-16 md:pt-0 2xl:pt-16 md:mt-24 mt-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 items-center md:grid-cols-2">
-            <div className="z-10">
+          <div className="grid gap-3 grid-cols-1 items-center md:grid-cols-2">
+            <div className="z-10 md:order-1 order-2">
               <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
                 Hey <span className="animate-wave inline-block">👋</span>, I'm
                 <span className=""> </span>
@@ -76,7 +76,7 @@ export default function MetaData() {
               </Link>
             </div>
 
-            <div className="relative">
+            <div className="relative  md:order-2 order-1">
               <img className="absolute inset-x-0 max-w-xl min-[550px]:max-w-2xl md:max-w-lg bottom-0 left-1/2 -mb-48 -translate-x-1/2" src="https://cdn.rareblocks.xyz/collection/celebration/images/team/1/blob-shape.svg" alt="" />
 
               <img className="relative w-full xl:mx-auto xl:max-w-sm 2xl:origin-bottom" src="https://res.cloudinary.com/dewxmgs8r/image/upload/v1730225385/bkuqd7ysl1fzxohpw8bc.png" alt="Rahul Rajput" />
