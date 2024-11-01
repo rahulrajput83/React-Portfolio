@@ -63,7 +63,7 @@ function Social() {
         <>
         <div className='p-4'> </div>
         <div className='flex flex-col mt-20 md:flex-row w-full  justify-center items-center md:items-start'>
-            <Transition className='w-1/2'>
+            <div className='w-1/2'>
                 <h1 className='text-2xl text-center w-full md:text-center md:mr-6 uppercase tracking-tight font-medium flex flex-col text-gray-900 sm:text-3xl md:text-3xl'>
                     <span>find me on</span>
                 </h1>
@@ -79,8 +79,8 @@ function Social() {
                         <FaInstagram />
                     </a>
                 </div>
-            </Transition >
-            <Transition className='w-full md:w-1/2 flex flex-col md:items-start md:justify-start items-center justify-center mt-8 md:mt-0'>
+            </div >
+            <div className='w-full md:w-1/2 flex flex-col md:items-start md:justify-start items-center justify-center mt-8 md:mt-0'>
                 <span className='uppercase text-2xl mx-auto text-center md:text-left w-full md:mr-6 tracking-tight font-medium sm:text-3xl text-gray-900 md:text-3xl'>Contact me</span>
                 <div className='mt-6 flex flex-col w-full justify-center items-center md:justify-start md:items-start'>
                     <form className='flex flex-col w-full justify-center items-center md:justify-start md:items-start' onSubmit={handleSubmit}>
@@ -100,7 +100,7 @@ function Social() {
                         </div> : null
                     }
                 </div>
-            </Transition>
+            </div>
         </div>
         </>
         

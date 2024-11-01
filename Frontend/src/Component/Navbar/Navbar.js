@@ -38,7 +38,7 @@ export default function Navbar() {
                         <div className="relative flex items-center justify-between h-16">
                             <div className="absolute inset-y-0 left-0 flex items-center md:hidden">
                                 {/* Mobile menu button*/}
-                                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-second hover:text-second focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-[#3225EC] hover:text-second focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                                     <span className="sr-only">Open main menu</span>
                                     {open ? (
                                         <XIcon className="block h-6 w-6" aria-hidden="true" />
@@ -55,14 +55,14 @@ export default function Navbar() {
                                                 key={`large-${item.name}`}
                                                 to={item.to}
                                                 className={classNames(
-                                                    'text-second px-3 py-2 text-base font-medium'
+                                                    'text-[#3225EC] px-3 py-2 text-base font-medium'
                                                 )}
                                                 aria-current={item.current ? 'page' : undefined}
                                             >
                                                 {item.name}
                                             </Link>
                                         ))}
-                                        <button className='text-white box-border bg-second rounded-full hover:bg-white hover:text-second px-3 py-2 text-base font-medium' onClick={handleDownload}>Download Resume</button>
+                                        <button className='text-white box-border bg-[#3225EC] rounded-full hover:bg-white hover:text-[#3225EC] px-3 py-2 text-base font-medium' onClick={handleDownload}>Download Resume</button>
                                     </div>
                                 </div>
                             </div>
@@ -70,19 +70,19 @@ export default function Navbar() {
                                 <div className='flex flex-row'>
                                     <a href='https://www.linkedin.com/in/rahulrajput83/'
                                         type="button"
-                                        className="p-1 hover:text-main rounded-full text-second"
+                                        className="p-1 hover:text-main rounded-full text-[#3225EC]"
                                     >
                                         <FaLinkedinIn className='h-6 w-6' aria-hidden='true' />
                                     </a>
                                     <a href='https://github.com/rahulrajput83'
                                         type="button"
-                                        className="p-1 hover:text-main rounded-full text-second ml-2 md:ml-6"
+                                        className="p-1 hover:text-main rounded-full text-[#3225EC] ml-2 md:ml-6"
                                     >
                                         <FaGithub className="h-6 w-6" aria-hidden="true" />
                                     </a>
                                     <a href='https://www.instagram.com/rajput_rahul8'
                                         type="button"
-                                        className="p-1 hover:text-main rounded-full text-second ml-2 md:ml-6"
+                                        className="p-1 hover:text-main rounded-full text-[#3225EC] ml-2 md:ml-6"
                                     >
                                         <FaInstagram className="h-6 w-6" aria-hidden="true" />
                                     </a>
@@ -99,14 +99,14 @@ export default function Navbar() {
                                     key={item.name}
                                     to={item.to}
                                     className={classNames(
-                                        'text-second block px-3 py-2 rounded-md text-base font-medium w-fit'
+                                        'text-[#3225EC] block px-3 py-2 rounded-md text-base font-medium w-fit'
                                     )}
                                     aria-current={item.current ? 'page' : undefined}
                                 >
                                     {item.name}
                                 </Link>
                             ))}
-                            <button className='text-white box-border bg-second rounded-full hover:bg-white hover:text-second px-3 py-2 text-base font-medium' onClick={handleDownload}>Download Resume</button>
+                            <button className='text-white box-border bg-[#3225EC] rounded-full hover:bg-white hover:text-[#3225EC] px-3 py-2 text-base font-medium' onClick={handleDownload}>Download Resume</button>
                         </div>
                     </Disclosure.Panel>
                 </>

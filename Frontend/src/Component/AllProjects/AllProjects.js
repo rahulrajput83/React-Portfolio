@@ -34,11 +34,11 @@ function AllProjects() {
     return (
         <>
             <div className='p-4'> </div>
-            <Transition>
+            {/* <Transition> */}
                 <h1 className='text-2xl mt-20 text-center w-full md:text-center md:mr-6 uppercase tracking-tight font-medium flex flex-col text-gray-900 sm:text-4xl md:text-4xl'>
                     <span>All <span className='text-second'>Projects</span></span>
                 </h1>
-            </Transition>
+            {/* </Transition> */}
             {
                 loading ? <Loading /> : null
             }
@@ -47,8 +47,8 @@ function AllProjects() {
                 {
                     allprojects.map((data, index) => {
                         return (
-                            <Transition key={`projects-${index}`}>
-                                <Link
+                            // <Transition `}>
+                                <Link key={`projects-${index}`}
                                     to={`/project/${data._id}`}
                                     className="mx-auto relative group w-full bg-cover shadow-2xl pb-8 rounded-b-2xl transform duration-700 hover:-translate-y-4 cursor-pointer rounded-lg transition-all ease-in-out flex flex-col"
                                 >
@@ -97,7 +97,7 @@ function AllProjects() {
                                         />
                                     </span>
                                 </Link>
-                            </Transition>
+                            // </Transition>
                         )
                     })
                 }

@@ -36,10 +36,10 @@ function Projects(props) {
     return (
         <div className='flex flex-col w-full mb-10 justify-center'>
             <div className='p-4 md:p-10'> </div>
-            <Transition className='text-2xl text-center w-full md:text-center md:mr-6 uppercase tracking-tight font-medium flex flex-col text-gray-900 sm:text-4xl md:text-4xl0'>
+            <div className='text-2xl text-center w-full md:text-center md:mr-6 uppercase tracking-tight font-medium flex flex-col text-gray-900 sm:text-4xl md:text-4xl0'>
                 <span>My Recent <span className='text-second'>Projects</span></span>
-            </Transition>
-            <Transition className='text-lg font-medium text-center'>Here are a few projects I've worked on recently.</Transition>
+            </div>
+            <div className='text-lg font-medium text-center'>Here are a few projects I've worked on recently.</div>
             {
                 loading ? <Loading /> : null
             }
@@ -48,7 +48,7 @@ function Projects(props) {
                 {
                     newArray.map((data, index) => {
                         return (
-                            <Transition key={`projectNew-${index}`}>
+                            <div key={`projectNew-${index}`}>
                                 <Link
                                     to={`/project/${data._id}`}
                                     className="mx-auto relative group w-full bg-cover shadow-2xl pb-8 rounded-b-2xl transform duration-700 hover:-translate-y-4 cursor-pointer rounded-lg transition-all ease-in-out flex flex-col"
@@ -98,7 +98,7 @@ function Projects(props) {
                                         />
                                     </span>
                                 </Link>
-                            </Transition>
+                            </div>
 
                         )
                     })

@@ -1,6 +1,6 @@
 import React from "react";
 import { Chrono } from "react-chrono";
-import { Transition } from "../Component/common-components/transitions";
+// import { Transition } from "../Component/common-components/transitions";
 
 const customContent = [
     <div className="flex flex-col cursor-pointer w-full">
@@ -38,12 +38,12 @@ const items = [
 export default function WorkExperience() {
     return (
         <div className="py-8">
-            <Transition>
-                <h1 className='text-2xl mt-20 mb-4 text-center w-full md:text-center md:mr-6 uppercase tracking-tight font-medium flex flex-col text-gray-900 sm:text-4xl md:text-4xl'>
-                    <span>Experience</span>
+            {/* <Transition> */}
+                <h1  key={`titleHeadtrguhj`} className='text-2xl mt-20 mb-4 text-center w-full md:text-center md:mr-6 uppercase tracking-tight font-medium flex flex-col text-gray-900 sm:text-4xl md:text-4xl'>
+                    <span key={`title`}>Experience</span>
                 </h1>
-            </Transition>
-            <Transition>
+            {/* </Transition> */}
+            {/* <Transition> */}
                 <Chrono theme={{
                     primary: "#A338CD",
                     secondary: 'white',
@@ -67,7 +67,7 @@ export default function WorkExperience() {
                     items={items}>
                     {customContent}
                 </Chrono>
-            </Transition>
+            {/* </Transition> */}
         </div>
     )
 }
